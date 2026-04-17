@@ -78,15 +78,15 @@
     "kibana_url": {
       "type": "string",
       "title": "Kibana URL",
-      "description": "Kibana URL (e.g. https://your-cluster.kb.cloud.example.com)",
-      "required": true,
+      "description": "Kibana URL — optional, defaults to Elasticsearch URL",
+      "required": false,
       "sensitive": false
     },
     "kibana_api_key": {
       "type": "string",
       "title": "Kibana API Key",
-      "description": "API key for Kibana authentication",
-      "required": true,
+      "description": "API key for Kibana — optional, defaults to Elasticsearch API key",
+      "required": false,
       "sensitive": true
     }
   },
@@ -102,7 +102,7 @@
     "threat-hunting",
     "mcp-app"
   ],
-  "license": "Apache-2.0",
+  "license": "Elastic-2.0",
   "privacy_policies": ["https://www.elastic.co/legal/privacy-statement"],
   "compatibility": {
     "platforms": ["darwin", "win32", "linux"],
