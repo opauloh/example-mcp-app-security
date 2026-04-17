@@ -1,5 +1,7 @@
 # Elastic Security MCP App
 
+[![Latest Release](https://img.shields.io/github/v/release/elastic/example-mcp-app-security?label=Download%20.mcpb&color=00bfb3)](https://github.com/elastic/example-mcp-app-security/releases/latest)
+
 An [MCP App](https://modelcontextprotocol.io/extensions/apps/overview) that brings interactive blue-team security operations directly into Claude, VS Code, and other MCP-compatible AI hosts. Built on the [Model Context Protocol](https://modelcontextprotocol.io/) with interactive UI extensions that render inline in the conversation.
 
 > **What are MCP Apps?** MCP Apps extend the Model Context Protocol to let tool servers return interactive HTML interfaces — dashboards, forms, visualizations — that render inside the AI conversation. The LLM calls a tool, and instead of just returning text, an interactive UI appears alongside the response.
@@ -20,6 +22,15 @@ This project provides six interactive security operations tools, each with a ric
 | **Sample Data** | Generate ECS security events for demos across 4 attack chain scenarios |
 
 See [docs/features.md](docs/features.md) for a full breakdown of each tool's capabilities.
+
+## Quick Start
+
+> [!TIP]
+> **Just want to try it?** Download [`elastic-security-mcp-app.mcpb`](https://github.com/elastic/example-mcp-app-security/releases/latest) and double-click it. No Node.js, no cloning, no config files.
+>
+> Claude Desktop handles the rest — you'll be prompted for your Elasticsearch URL and API key during install. That's it.
+
+For other hosts (Cursor, VS Code, Claude Code) or building from source, see [Installation](#installation) below.
 
 ## How It Works
 

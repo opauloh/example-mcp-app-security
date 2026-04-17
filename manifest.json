@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "elastic-security-mcp-app",
   "display_name": "Elastic Security",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Interactive blue-team security operations for Elastic Security — alert triage, attack discovery, case management, detection rules, threat hunting, and sample data generation.",
   "long_description": "An MCP App server that brings interactive blue-team security operations directly into Claude Desktop. Provides six rich React-based UIs that render inline in the conversation: alert triage with AI verdicts, AI-powered attack discovery with confidence scoring and MITRE mapping, case management with the Kibana Cases API, detection rule browsing and tuning, an ES|QL threat-hunting workbench with a D3 investigation graph, and an ECS sample-data generator for demos.",
   "author": {
@@ -78,15 +78,15 @@
     "kibana_url": {
       "type": "string",
       "title": "Kibana URL",
-      "description": "Kibana URL (e.g. https://your-cluster.kb.cloud.example.com)",
-      "required": true,
+      "description": "Kibana URL — optional, defaults to Elasticsearch URL",
+      "required": false,
       "sensitive": false
     },
     "kibana_api_key": {
       "type": "string",
       "title": "Kibana API Key",
-      "description": "API key for Kibana authentication",
-      "required": true,
+      "description": "API key for Kibana — optional, defaults to Elasticsearch API key",
+      "required": false,
       "sensitive": true
     }
   },
@@ -102,7 +102,7 @@
     "threat-hunting",
     "mcp-app"
   ],
-  "license": "Apache-2.0",
+  "license": "Elastic-2.0",
   "privacy_policies": ["https://www.elastic.co/legal/privacy-statement"],
   "compatibility": {
     "platforms": ["darwin", "win32", "linux"],

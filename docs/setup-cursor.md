@@ -12,7 +12,7 @@ Click to install:
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=elastic-security&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsImh0dHBzOi8vZ2l0aHViLmNvbS9lbGFzdGljL2V4YW1wbGUtbWNwLWFwcC1zZWN1cml0eS9yZWxlYXNlcy9sYXRlc3QvZG93bmxvYWQvZWxhc3RpYy1zZWN1cml0eS1tY3AtYXBwLnRneiIsIi0tc3RkaW8iXSwiZW52Ijp7IkVMQVNUSUNTRUFSQ0hfVVJMIjoiaHR0cHM6Ly95b3VyLWNsdXN0ZXIuZXMuY2xvdWQuZXhhbXBsZS5jb20iLCJFTEFTVElDU0VBUkNIX0FQSV9LRVkiOiJ5b3VyLWFwaS1rZXkiLCJLSUJBTkFfVVJMIjoiaHR0cHM6Ly95b3VyLWNsdXN0ZXIua2IuY2xvdWQuZXhhbXBsZS5jb20iLCJLSUJBTkFfQVBJX0tFWSI6InlvdXIta2liYW5hLWFwaS1rZXkifX0=)
 <!-- cursor-mcp-config:END -->
 
-> After clicking, replace the placeholder values in Cursor's MCP settings with your actual Elasticsearch and Kibana credentials.
+> After clicking, replace the placeholder values in Cursor's MCP settings with your actual Elasticsearch and Kibana credentials. See [Creating an API key](./setup-local.md#creating-an-api-key) for how to generate your credentials.
 
 Or add manually to `.cursor/mcp.json`:
 
@@ -38,6 +38,8 @@ Or add manually to `.cursor/mcp.json`:
 ```
 
 > **Pinning a version:** Replace `elastic-security-mcp-app.tgz` with `elastic-security-mcp-app-<version>.tgz` (e.g., `elastic-security-mcp-app-0.2.0.tgz`).
+>
+> **Kibana credentials:** `KIBANA_URL` and `KIBANA_API_KEY` are optional — they default to the Elasticsearch values. If you use the same credentials for both, you only need `ELASTICSEARCH_URL` and `ELASTICSEARCH_API_KEY`.
 
 ## Option 2: Local server (stdio)
 
