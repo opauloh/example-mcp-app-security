@@ -7,7 +7,7 @@ Build from source and run the MCP server on your machine.
 - **Node.js 22+**
 - **Elasticsearch 8.x or 9.x** with Security enabled
 - **Kibana 8.x or 9.x** (for cases, rules, and attack discovery)
-- **API keys** for both Elasticsearch and Kibana
+- **An Elasticsearch API key** (see [Creating an API key](#creating-an-api-key) below)
 
 ## Steps
 
@@ -28,6 +28,17 @@ npm run build
 npm start
 # Server is now running at http://localhost:3001/mcp
 ```
+
+## Creating an API key
+
+You need an Elasticsearch API key with sufficient privileges for the operations you want to perform (reading alerts, managing cases, writing detection rules, etc.).
+
+- **Kibana UI:** Go to **Stack Management > API Keys > Create API key**
+- **Elastic docs:** [Elasticsearch API keys](https://www.elastic.co/docs/deploy-manage/api-keys/elasticsearch-api-keys)
+
+For a quick start, a key with the `superuser` role works for all tools. For production, scope the key to the minimum required privileges.
+
+> **Elastic Cloud users:** On Elastic Cloud the same API key works for both Elasticsearch and Kibana. You can omit `KIBANA_URL` and `KIBANA_API_KEY` — they default to their Elasticsearch counterparts.
 
 ## Next Steps
 
