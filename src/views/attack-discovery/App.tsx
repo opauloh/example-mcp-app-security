@@ -67,7 +67,7 @@ function parseSummary(text: string): (string | EntityRef)[] {
 }
 
 // Kibana stores attack-discovery text with mustache placeholders like
-// "{{ user.name jamesspiteri }}" so its own UI can swap in anonymised values.
+// "{{ user.name johndoe }}" so its own UI can swap in anonymised values.
 // Inside this app we don't do that substitution, so strip the markers down to
 // just the entity value for plain-text renderings.
 function stripMustache(text: string): string {
