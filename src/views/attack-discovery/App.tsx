@@ -52,6 +52,10 @@ const ENTITY_STYLES: Record<string, { icon: string; color: string; label: string
 interface EntityRef { field: string; type: string; value: string }
 interface FlyoutState { type: string; value: string; x: number; y: number }
 
+function stripMustache(text: string): string {
+  return text.replace(/\{\{\s*[\w.]+\s+(.+?)\s*\}\}/g, "$1");
+}
+
 function parseSummary(text: string): (string | EntityRef)[] {
   const re = /\{\{\s*([\w.]+)\s+(.+?)\s*\}\}/g;
   const parts: (string | EntityRef)[] = [];
@@ -103,10 +107,13 @@ function EntityFlyout({ state, detail, onClose }: {
   onClose: () => void;
 }) {
   const cfg = ENTITY_STYLES[state.type] || ENTITY_STYLES.host;
-  const risk = detail?.entityRisk?.find((er) => er.name === state.value);
+  const isHostOrUser = state.type === "host" || state.type === "user";
+  const risk = isHostOrUser ? detail?.entityRisk?.find((er) => er.name === state.value) : undefined;
   const alerts = detail?.alerts?.filter((a) =>
     (state.type === "host" && a.host === state.value) ||
-    (state.type === "user" && a.user === state.value)
+    (state.type === "user" && a.user === state.value) ||
+    (state.type === "process" && a.details?.["process.name"] === state.value) ||
+    (state.type === "file" && a.details?.["file.name"] === state.value)
   ) || [];
 
   return (
@@ -126,7 +133,7 @@ function EntityFlyout({ state, detail, onClose }: {
         <button className="ef-close" onClick={onClose}>{"\u2715"}</button>
       </div>
 
-      {risk && risk.level.toLowerCase() !== "unknown" ? (
+      {isHostOrUser && (risk && risk.level.toLowerCase() !== "unknown" ? (
         <div className="ef-risk">
           <div className="ef-risk-bar">
             <div
@@ -144,7 +151,7 @@ function EntityFlyout({ state, detail, onClose }: {
         </div>
       ) : (
         <div className="ef-unscored">Risk engine not enabled for this entity</div>
-      )}
+      ))}
 
       {alerts.length > 0 && (
         <div className="ef-alerts">
@@ -556,7 +563,7 @@ export function App() {
                 </div>
 
                 {!selected && (
-                  <div className="discovery-card-summary">{d.summaryMarkdown?.replace(/[#*_`]/g, "")}</div>
+                  <div className="discovery-card-summary">{stripMustache(d.summaryMarkdown?.replace(/[#*_`]/g, "") || "")}</div>
                 )}
 
                 <div className="discovery-card-meta">
