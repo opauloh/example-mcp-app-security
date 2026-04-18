@@ -66,6 +66,15 @@ function parseSummary(text: string): (string | EntityRef)[] {
   return parts;
 }
 
+// Kibana stores attack-discovery text with mustache placeholders like
+// "{{ user.name jamesspiteri }}" so its own UI can swap in anonymised values.
+// Inside this app we don't do that substitution, so strip the markers down to
+// just the entity value for plain-text renderings.
+function stripMustache(text: string): string {
+  if (!text) return text;
+  return text.replace(/\{\{\s*[\w.]+\s+(.+?)\s*\}\}/g, "$1");
+}
+
 function SummaryContent({ text, onEntity }: {
   text: string;
   onEntity: (type: string, value: string, x: number, y: number) => void;
@@ -556,7 +565,7 @@ export function App() {
                 </div>
 
                 {!selected && (
-                  <div className="discovery-card-summary">{d.summaryMarkdown?.replace(/[#*_`]/g, "")}</div>
+                  <div className="discovery-card-summary">{stripMustache(d.summaryMarkdown || "").replace(/[#*_`]/g, "")}</div>
                 )}
 
                 <div className="discovery-card-meta">
