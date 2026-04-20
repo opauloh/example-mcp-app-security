@@ -7,7 +7,21 @@ Build from source and run the MCP server on your machine.
 - **Node.js 22+**
 - **Elasticsearch 8.x or 9.x** with Security enabled
 - **Kibana 8.x or 9.x** (for cases, rules, and attack discovery)
-- **An Elasticsearch API key** (see [Creating an API key](#creating-an-api-key) below)
+- **`ELASTICSEARCH_URL` and `ELASTICSEARCH_API_KEY`**
+- **`KIBANA_URL`**
+
+You need both service URLs plus a single Elasticsearch API key for full functionality.
+
+## Creating an API key
+
+You need an Elasticsearch API key with sufficient privileges for the operations you want to perform (reading alerts, managing cases, writing detection rules, etc.).
+
+- **Kibana UI:** Go to **Stack Management > API Keys > Create API key**
+- **Elastic docs:** [Elasticsearch API keys](https://www.elastic.co/docs/deploy-manage/api-keys/elasticsearch-api-keys)
+
+For a quick start, a key with the `superuser` role works for all tools. For production, scope the key to the minimum required privileges.
+
+Kibana API keys and Elasticsearch API keys are the same underlying credential type. This project uses `ELASTICSEARCH_API_KEY` for both Elasticsearch and Kibana requests, so you only need to configure one API key value.
 
 ## Steps
 
@@ -19,7 +33,7 @@ npm install
 
 # Configure
 cp .env.example .env
-# Edit .env with your Elasticsearch/Kibana URLs and API keys
+# Edit .env with your Elasticsearch URL, Kibana URL, and Elasticsearch API key
 
 # Build
 npm run build
@@ -28,17 +42,6 @@ npm run build
 npm start
 # Server is now running at http://localhost:3001/mcp
 ```
-
-## Creating an API key
-
-You need an Elasticsearch API key with sufficient privileges for the operations you want to perform (reading alerts, managing cases, writing detection rules, etc.).
-
-- **Kibana UI:** Go to **Stack Management > API Keys > Create API key**
-- **Elastic docs:** [Elasticsearch API keys](https://www.elastic.co/docs/deploy-manage/api-keys/elasticsearch-api-keys)
-
-For a quick start, a key with the `superuser` role works for all tools. For production, scope the key to the minimum required privileges.
-
-> **Kibana credentials:** `KIBANA_URL` and `KIBANA_API_KEY` are optional — they default to their Elasticsearch counterparts. If you use the same credentials for both, you only need `ELASTICSEARCH_URL` and `ELASTICSEARCH_API_KEY`.
 
 ## Next Steps
 

@@ -8,7 +8,6 @@
   "env": {
     "ELASTICSEARCH_URL": "https://your-cluster.es.cloud.example.com",
     "ELASTICSEARCH_API_KEY": "your-api-key",
-    "KIBANA_URL": "https://your-cluster.kb.cloud.example.com",
-    "KIBANA_API_KEY": "your-kibana-api-key"
+    "KIBANA_URL": "https://your-cluster.kb.cloud.example.com"
   }
 }

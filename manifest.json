@@ -24,8 +24,7 @@
       "env": {
         "ELASTICSEARCH_URL": "${user_config.elasticsearch_url}",
         "ELASTICSEARCH_API_KEY": "${user_config.elasticsearch_api_key}",
-        "KIBANA_URL": "${user_config.kibana_url}",
-        "KIBANA_API_KEY": "${user_config.kibana_api_key}"
+        "KIBANA_URL": "${user_config.kibana_url}"
       }
     }
   },
@@ -78,16 +77,9 @@
     "kibana_url": {
       "type": "string",
       "title": "Kibana URL",
-      "description": "Kibana URL — optional, defaults to Elasticsearch URL",
-      "required": false,
+      "description": "Kibana URL (e.g. https://your-cluster.kb.cloud.example.com)",
+      "required": true,
       "sensitive": false
-    },
-    "kibana_api_key": {
-      "type": "string",
-      "title": "Kibana API Key",
-      "description": "API key for Kibana — optional, defaults to Elasticsearch API key",
-      "required": false,
-      "sensitive": true
     }
   },
   "keywords": [
