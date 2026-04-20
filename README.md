@@ -26,7 +26,7 @@ See [docs/features.md](docs/features.md) for a full breakdown of each tool's cap
 ## Quick Start
 
 > [!TIP]
-> **Just want to try it?** Download [`elastic-security-mcp-app.mcpb`](https://github.com/elastic/example-mcp-app-security/releases/latest) and double-click it. No Node.js, no cloning, no config files.
+> **Just want to try it?** Download [`example-mcp-app-security.mcpb`](https://github.com/elastic/example-mcp-app-security/releases/latest) and double-click it. No Node.js, no cloning, no config files.
 >
 > Claude Desktop handles the rest — you'll be prompted for your Elasticsearch URL and API key during install. That's it.
 
