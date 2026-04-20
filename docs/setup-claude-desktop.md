@@ -13,6 +13,8 @@ Claude Desktop opens an install dialog with fields for your Elasticsearch and Ki
 - `KIBANA_URL`
 - `KIBANA_API_KEY`
 
+If you are using a single Elasticsearch API key for both services, enter that same key in both API key fields.
+
 After install:
 
 - Claude Desktop may show the connector as disabled at first. Toggle it on to enable the server.

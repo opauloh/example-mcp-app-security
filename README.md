@@ -28,7 +28,7 @@ See [docs/features.md](docs/features.md) for a full breakdown of each tool's cap
 > [!TIP]
 > **Just want to try it?** Download [`example-mcp-app-security.mcpb`](https://github.com/elastic/example-mcp-app-security/releases/latest) and double-click it. No Node.js, no cloning, no config files.
 >
-> Claude Desktop handles the rest — you'll be prompted for your Elasticsearch URL and API key during install. That's it.
+> Claude Desktop handles the rest — you'll be prompted for your Elasticsearch and Kibana URLs and API keys during install. See [Creating an API key](docs/setup-local.md#creating-an-api-key) if you need to generate one first.
 
 For other hosts (Cursor, VS Code, Claude Code) or building from source, see [Installation](#installation) below.
 

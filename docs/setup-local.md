@@ -12,6 +12,17 @@ Build from source and run the MCP server on your machine.
 
 Both Elasticsearch and Kibana credentials are required for full functionality.
 
+## Creating an API key
+
+You need an Elasticsearch API key with sufficient privileges for the operations you want to perform (reading alerts, managing cases, writing detection rules, etc.).
+
+- **Kibana UI:** Go to **Stack Management > API Keys > Create API key**
+- **Elastic docs:** [Elasticsearch API keys](https://www.elastic.co/docs/deploy-manage/api-keys/elasticsearch-api-keys)
+
+For a quick start, a key with the `superuser` role works for all tools. For production, scope the key to the minimum required privileges.
+
+Kibana API keys and Elasticsearch API keys are the same underlying credential type. In this project, you can use the same API key value for both `ELASTICSEARCH_API_KEY` and `KIBANA_API_KEY` as long as that key has the required privileges for both Elasticsearch and Kibana operations.
+
 ## Steps
 
 ```bash
