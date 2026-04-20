@@ -1,20 +1,23 @@
 # Adding to Claude Desktop
 
-## Option 1: One-click install (recommended)
+## Step 1: Install the MCP App
 
-Download `elastic-security-mcp-app.mcpb` from the [latest GitHub release](https://github.com/elastic/example-mcp-app-security/releases/latest) and double-click it.
+### Option 1: One-click install (recommended)
 
-> [!NOTE]
-> Claude Desktop displays a security warning stating the extension will have access to your computer. This is a standard message shown for all third-party extensions and is not specific to this one.
+Download `example-mcp-app-security.mcpb` from the [latest GitHub release](https://github.com/elastic/example-mcp-app-security/releases/latest) and double-click it.
 
-Claude Desktop shows an install dialog with a settings UI for your Elasticsearch and Kibana credentials. Sensitive values (API keys) are stored in the OS keychain. No Node.js, cloning, or config-file editing required. See [Creating an API key](./setup-local.md#creating-an-api-key) for how to generate your credentials.
+Claude Desktop opens an install dialog with fields for your Elasticsearch and Kibana credentials. All four values are required for full functionality:
 
-> [!IMPORTANT]
-> After installing, the extension appears **disabled** by default. Toggle it to **Enabled** and click **Configure** to enter your Elasticsearch credentials. This is standard Claude Desktop behavior for all extensions.
+- `ELASTICSEARCH_URL`
+- `ELASTICSEARCH_API_KEY`
+- `KIBANA_URL`
+- `KIBANA_API_KEY`
 
-> **Kibana credentials:** `KIBANA_URL` and `KIBANA_API_KEY` are optional — they default to the Elasticsearch values. If you use the same credentials for both, you only need `ELASTICSEARCH_URL` and `ELASTICSEARCH_API_KEY`.
+After install:
 
-## Option 2: Manual config (build from source)
+- Claude Desktop may show the connector as disabled at first. Toggle it on to enable the server.
+
+### Option 2: Manual config (build from source)
 
 Requires the project to be [built locally](./setup-local.md).
 
@@ -37,9 +40,9 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 }
 ```
 
-Restart Claude Desktop. The tools appear under the MCP connector menu.
+Restart Claude Desktop, then enable the connector if Claude shows it as disabled. The tools appear under the MCP connector menu.
 
-## Install Skills
+## Step 2: Add Claude Skills
 
 Skills teach Claude _when_ and _how_ to use the tools. Download the skill zips from the [latest GitHub release](https://github.com/elastic/example-mcp-app-security/releases/latest):
 
@@ -49,7 +52,7 @@ Skills teach Claude _when_ and _how_ to use the tools. Download the skill zips f
 - `detection-rule-management.zip`
 - `generate-sample-data.zip`
 
-In Claude Desktop: **Customize → Skills → Create Skill → Upload a skill** → upload each zip individually.
+In Claude Desktop: **Customize -> Skills -> Create Skill -> Upload a skill**. Upload each zip individually.
 
 If you're building from source, generate the zips locally instead:
 

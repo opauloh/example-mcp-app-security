@@ -78,15 +78,15 @@
     "kibana_url": {
       "type": "string",
       "title": "Kibana URL",
-      "description": "Kibana URL — optional, defaults to Elasticsearch URL",
-      "required": false,
+      "description": "Kibana URL (e.g. https://your-cluster.kb.cloud.example.com)",
+      "required": true,
       "sensitive": false
     },
     "kibana_api_key": {
       "type": "string",
       "title": "Kibana API Key",
-      "description": "API key for Kibana — optional, defaults to Elasticsearch API key",
-      "required": false,
+      "description": "API key for Kibana authentication",
+      "required": true,
       "sensitive": true
     }
   },
