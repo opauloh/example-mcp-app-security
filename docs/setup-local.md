@@ -8,9 +8,9 @@ Build from source and run the MCP server on your machine.
 - **Elasticsearch 8.x or 9.x** with Security enabled
 - **Kibana 8.x or 9.x** (for cases, rules, and attack discovery)
 - **`ELASTICSEARCH_URL` and `ELASTICSEARCH_API_KEY`**
-- **`KIBANA_URL` and `KIBANA_API_KEY`**
+- **`KIBANA_URL`**
 
-Both Elasticsearch and Kibana credentials are required for full functionality.
+You need both service URLs plus a single Elasticsearch API key for full functionality.
 
 ## Creating an API key
 
@@ -21,7 +21,7 @@ You need an Elasticsearch API key with sufficient privileges for the operations 
 
 For a quick start, a key with the `superuser` role works for all tools. For production, scope the key to the minimum required privileges.
 
-Kibana API keys and Elasticsearch API keys are the same underlying credential type. In this project, you can use the same API key value for both `ELASTICSEARCH_API_KEY` and `KIBANA_API_KEY` as long as that key has the required privileges for both Elasticsearch and Kibana operations.
+Kibana API keys and Elasticsearch API keys are the same underlying credential type. This project uses `ELASTICSEARCH_API_KEY` for both Elasticsearch and Kibana requests, so you only need to configure one API key value.
 
 ## Steps
 
@@ -33,7 +33,7 @@ npm install
 
 # Configure
 cp .env.example .env
-# Edit .env with your required Elasticsearch/Kibana URLs and API keys
+# Edit .env with your Elasticsearch URL, Kibana URL, and Elasticsearch API key
 
 # Build
 npm run build

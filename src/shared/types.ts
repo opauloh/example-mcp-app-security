@@ -9,7 +9,6 @@ export interface ElasticConfig {
   elasticsearchUrl: string;
   elasticsearchApiKey: string;
   kibanaUrl: string;
-  kibanaApiKey: string;
 }
 
 export interface SecurityAlert {

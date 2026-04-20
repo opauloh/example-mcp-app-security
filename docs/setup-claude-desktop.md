@@ -6,14 +6,11 @@
 
 Download `example-mcp-app-security.mcpb` from the [latest GitHub release](https://github.com/elastic/example-mcp-app-security/releases/latest) and double-click it.
 
-Claude Desktop opens an install dialog with fields for your Elasticsearch and Kibana credentials. All four values are required for full functionality:
+Claude Desktop opens an install dialog with fields for your Elasticsearch URL, Kibana URL, and Elasticsearch API key:
 
 - `ELASTICSEARCH_URL`
 - `ELASTICSEARCH_API_KEY`
 - `KIBANA_URL`
-- `KIBANA_API_KEY`
-
-If you are using a single Elasticsearch API key for both services, enter that same key in both API key fields.
 
 After install:
 
@@ -34,8 +31,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
       "env": {
         "ELASTICSEARCH_URL": "https://your-cluster.es.cloud.example.com",
         "ELASTICSEARCH_API_KEY": "your-api-key",
-        "KIBANA_URL": "https://your-cluster.kb.cloud.example.com",
-        "KIBANA_API_KEY": "your-kibana-api-key"
+        "KIBANA_URL": "https://your-cluster.kb.cloud.example.com"
       }
     }
   }

@@ -12,7 +12,7 @@ let _config: ElasticConfig | null = null;
 function requireConfigValue(value: string | undefined, envName: string): string {
   if (!value) {
     throw new Error(
-      `${envName} is required. Configure both Elasticsearch and Kibana credentials to use the full app.`
+      `${envName} is required. Configure Elasticsearch and Kibana URLs plus ELASTICSEARCH_API_KEY to use the full app.`
     );
   }
   return value;
@@ -29,7 +29,6 @@ export function setConfig(config: ElasticConfig) {
       "ELASTICSEARCH_API_KEY"
     ),
     kibanaUrl: requireConfigValue(config.kibanaUrl, "KIBANA_URL").replace(/\/$/, ""),
-    kibanaApiKey: requireConfigValue(config.kibanaApiKey, "KIBANA_API_KEY"),
   };
 }
 
@@ -44,16 +43,11 @@ export function getConfig(): ElasticConfig {
       "ELASTICSEARCH_API_KEY"
     );
     const kibanaUrl = requireConfigValue(process.env.KIBANA_URL, "KIBANA_URL");
-    const kibanaApiKey = requireConfigValue(
-      process.env.KIBANA_API_KEY,
-      "KIBANA_API_KEY"
-    );
 
     _config = {
       elasticsearchUrl: elasticsearchUrl.replace(/\/$/, ""),
       elasticsearchApiKey,
       kibanaUrl: kibanaUrl.replace(/\/$/, ""),
-      kibanaApiKey,
     };
   }
   return _config;
@@ -119,7 +113,7 @@ export async function kibanaRequest<T = unknown>(
   }
 
   const headers: Record<string, string> = {
-    Authorization: `ApiKey ${config.kibanaApiKey}`,
+    Authorization: `ApiKey ${config.elasticsearchApiKey}`,
     "Content-Type": "application/json",
     "kbn-xsrf": "true",
     "x-elastic-internal-origin": "Kibana",
